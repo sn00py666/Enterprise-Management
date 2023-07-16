@@ -1,5 +1,6 @@
 import serial
 from tkinter import Tk, Canvas, Button, PhotoImage
+import threading
 
 
 class Interface:
@@ -219,8 +220,12 @@ class Interface:
         self.window.resizable(False, False)
 
         self.arduino = serial.Serial('COM3', 9600)
+        # self.listen_for_arduino()
 
-        self.listen_for_arduino()
+        # Запускаем прослушивание Arduino в отдельном потоке
+        thread = threading.Thread(target=self.listen_for_arduino)
+        thread.daemon = True
+        thread.start()
 
         self.window.mainloop()
 
