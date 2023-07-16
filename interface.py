@@ -20,7 +20,7 @@ class Interface:
         self.canvas.place(x=0, y=0)
 
         self.button_image_Settings = \
-            PhotoImage(file="./assets/frame0/button_1.png")
+            PhotoImage(file="./Assets/Images/button_1.png")
         self.buttonSettings = Button(
             image=self.button_image_Settings,
             borderwidth=0,
@@ -35,7 +35,7 @@ class Interface:
             height=66.0)
 
         self.button_image_Charts = \
-            PhotoImage(file="./assets/frame0/button_2.png")
+            PhotoImage(file="./Assets/Images/button_2.png")
         self.buttonCharts = Button(
             image=self.button_image_Charts,
             borderwidth=0,
@@ -49,7 +49,7 @@ class Interface:
             width=64.0,
             height=72.0)
 
-        self.button_imageInfo = PhotoImage(file="./assets/frame0/button_3.png")
+        self.button_imageInfo = PhotoImage(file="./Assets/Images/button_3.png")
         self.buttonInfo = Button(
             image=self.button_imageInfo,
             borderwidth=0,
@@ -64,7 +64,7 @@ class Interface:
             height=66.0)
 
         self.button_imagepParametrs = \
-            PhotoImage(file="./assets/frame0/button_4.png")
+            PhotoImage(file="./Assets/Images/button_4.png")
         self.buttonParametrs = Button(
             image=self.button_imagepParametrs,
             borderwidth=0,
@@ -78,7 +78,7 @@ class Interface:
             width=62.0,
             height=68.0)
 
-        self.button_imageOff = PhotoImage(file="./assets/frame0/button_5.png")
+        self.button_imageOff = PhotoImage(file="./Assets/Images/button_5.png")
         self.buttonOff = Button(
             image=self.button_imageOff,
             borderwidth=0,
@@ -202,16 +202,16 @@ class Interface:
 
         # Создаем задний фон и интерфейс, подгружаем фото
         self.image_Background_Turbo = \
-            PhotoImage(file="./assets/frame0/Background_Turbo.png")
-        self.image_image_1 = PhotoImage(file="./assets/frame0/image_1.png")
+            PhotoImage(file="./Assets/Images/Background_Turbo.png")
+        self.image_image_1 = PhotoImage(file="./Assets/Images/image_1.png")
         self.background = self.image_image_1
         self.image_1 = self.canvas.create_image(
             508.0, 292.0,
             image=self.background)
 
         self.image_Interface_Turbo = \
-            PhotoImage(file="./assets/frame0/Interface_Turbo.png")
-        self.image_image_2 = PhotoImage(file="./assets/frame0/image_2.png")
+            PhotoImage(file="./Assets/Images/Interface_Turbo.png")
+        self.image_image_2 = PhotoImage(file="./Assets/Images/image_2.png")
         self.ColorInterface = self.image_image_2
         self.image_2 = self.canvas.create_image(
             512.0, 307.0,
