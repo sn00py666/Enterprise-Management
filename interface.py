@@ -287,18 +287,18 @@ class Interface:
     def button_charts(self):
         print("button_charts")
 
-    def button_parametrs(self):
-        if self.sueta_status == "off":
-            self.sueta = self.canvas.create_image(
-                485.0 + 90, 306 + 90,
-                image=self.image_sueta,
-            )
+    # def button_parametrs(self):
+    #     if self.sueta_status == "off":
+    #         self.sueta = self.canvas.create_image(
+    #             485.0 + 90, 306 + 90,
+    #             image=self.image_sueta,
+    #         )
 
-            self.sueta_status = "on"
+    #         self.sueta_status = "on"
             
-        else:
-            self.canvas.delete(self.sueta)
-            self.sueta_status = "off"
+    #     else:
+    #         self.canvas.delete(self.sueta)
+    #         self.sueta_status = "off"
 
 
 
@@ -317,3 +317,34 @@ class Interface:
             self.button_parametrs()
         else:
             self.image_sueta = PhotoImage(file=image)
+
+    def start_flickering(self):
+        self.flicker = True
+        self.flicker_sueta()
+
+    def stop_flickering(self):
+        self.flicker = False
+
+    def flicker_sueta(self):
+        if self.flicker:
+            if self.sueta in self.canvas.find_all():
+                self.canvas.delete(self.sueta)
+            else:
+                self.sueta = self.canvas.create_image(
+                    485.0 + 90, 306 + 90,
+                    image=self.image_sueta
+                )
+        self.window.after(400, self.flicker_sueta)
+
+    def button_parametrs(self):
+        if self.sueta_status == "off":
+            self.sueta = self.canvas.create_image(
+                485.0 + 90, 306 + 90,
+                image=self.image_sueta,
+            )
+            self.sueta_status = "on"
+            self.start_flickering()  # Start the flickering when the sueta is turned on
+        else:
+            self.canvas.delete(self.sueta)
+            self.sueta_status = "off"
+            self.stop_flickering()  # Stop the flickering when the sueta is turned off
